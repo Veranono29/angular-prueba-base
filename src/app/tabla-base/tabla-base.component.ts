@@ -6,9 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tabla-base.component.css'],
 })
 export class TablaBaseComponent implements OnInit {
-  victoria: number = 3;
-  derrota: number = 2;
+  victoria: number = 0;
+  derrota: number = 0;
   ubiPelota: number = 0;
+
+  // DEFINES DE IMAGENES
+  private manocerrada: string =
+    'https://img.freepik.com/free-photo/man-hand-clenched-fist-isolated-white_103324-216.jpg?size=338&ext=jpg';
+  private manoabierta: string =
+    'https://image.freepik.com/free-photo/open-hand-isolated-white-background_58409-11407.jpg';
+  private manobola: string =
+    'https://www.ayudasdinamicas.com/img/bloguploads/1498476583_hand_exerciser_-_red_-_in_use_tiff.jpg';
+  //
+
+  srcIz: string = this.manocerrada;
+  srcDe: string = this.manocerrada;
 
   constructor() {}
   ngOnInit() {}
@@ -21,13 +33,8 @@ export class TablaBaseComponent implements OnInit {
   onPista() {
     //diria donde esta la pelota
     alert(
-      'LA pelota esta en ' + (this.ubiPelota == 0 ? 'Izquierda' : 'Derecha')
+      'La pelota esta en la ' + (this.ubiPelota == 0 ? 'Izquierda' : 'Derecha')
     );
-  }
-
-  resImg() {
-    //resetea las url de las imagenes
-    throw new Error('Method not implemented.');
   }
 
   clearMar() {
@@ -39,13 +46,34 @@ export class TablaBaseComponent implements OnInit {
     this.ubiPelota = Math.floor(Math.random() * 2);
   }
   onIzquierda() {
-    this.ubiPelota == 0 ? this.victoria++ : this.derrota++;
-
-    this.newRandom();
+    if (this.ubiPelota == 0) {
+      this.victoria++;
+      this.srcIz = this.manobola;
+    } else {
+      this.derrota++;
+      this.srcIz = this.manoabierta;
+    }
+    setTimeout(() => {
+      this.resImg();
+      this.newRandom();
+    }, 500);
   }
   onDerecha() {
-    this.ubiPelota == 1 ? this.victoria++ : this.derrota++;
+    if (this.ubiPelota == 1) {
+      this.victoria++;
+      this.srcDe = this.manobola;
+    } else {
+      this.derrota++;
+      this.srcDe = this.manoabierta;
+    }
+    setTimeout(() => {
+      this.resImg();
+      this.newRandom();
+    }, 500);
+  }
 
-    this.newRandom();
+  resImg() {
+    this.srcIz = this.manocerrada;
+    this.srcDe = this.manocerrada;
   }
 }

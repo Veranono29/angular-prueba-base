@@ -1,6 +1,13 @@
 <table>
   <app-vict-der [victoria]="victoria" [derrota]="derrota"></app-vict-der>
-  <tbody></tbody>
-  <app-botones (reset)="onIzquierda()" (pista)="onDerecha()"></app-botones>
+  <br />
+
+  <app-images
+    (clickIz)="onIzquierda()"
+    (clickDe)="onDerecha()"
+    [srcIz]="srcIz"
+    [srcDe]="srcDe"
+  ></app-images>
 </table>
-<app-botones (pista)="onPista()" (reset)="onReset()"></app-botones>
+
+<app-botones (pista)="onPista()" (reset)="onReset()"> </app-botones>

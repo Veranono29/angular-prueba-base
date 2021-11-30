@@ -8,6 +8,7 @@ import { TablaBaseComponent } from './tabla-base/tabla-base.component';
 import { TablaHeadComponent } from './tabla-head/tabla-head.component';
 import { BotonesComponent } from './botones/botones.component';
 import { VictDerComponent } from './vict-der/vict-der.component';
+import { ImagesComponent } from './images/images.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -18,6 +19,7 @@ import { VictDerComponent } from './vict-der/vict-der.component';
     TablaHeadComponent,
     BotonesComponent,
     VictDerComponent,
+    ImagesComponent,
   ],
   bootstrap: [AppComponent],
 })
