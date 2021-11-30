@@ -49,9 +49,12 @@ export class TablaBaseComponent implements OnInit {
     if (this.ubiPelota == 0) {
       this.victoria++;
       this.srcIz = this.manobola;
+      alert("Has Ganado");
     } else {
       this.derrota++;
       this.srcIz = this.manoabierta;
+      alert("Has Perdido");
+
     }
     setTimeout(() => {
       this.resImg();
@@ -62,10 +65,13 @@ export class TablaBaseComponent implements OnInit {
     if (this.ubiPelota == 1) {
       this.victoria++;
       this.srcDe = this.manobola;
+      alert("Has Ganado");
     } else {
       this.derrota++;
       this.srcDe = this.manoabierta;
+      alert("Has Perdido");
     }
+    
     setTimeout(() => {
       this.resImg();
       this.newRandom();
